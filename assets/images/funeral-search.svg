@@ -1,0 +1,37 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="96" height="96" rx="32" fill="url(#paint0_radial_994_3173)"/>
+<g clip-path="url(#clip0_994_3173)">
+<g filter="url(#filter0_n_994_3173)">
+<path d="M76.0002 72.7009L61.4005 58.0989C65.1886 53.4638 67.0503 47.5502 66.6008 41.5811C66.1513 35.6119 63.4248 30.0439 58.9853 26.0284C54.5459 22.013 48.7329 19.8574 42.7488 20.0073C36.7646 20.1573 31.067 22.6014 26.8342 26.8342C22.6014 31.067 20.1573 36.7646 20.0073 42.7488C19.8574 48.7329 22.013 54.5459 26.0284 58.9853C30.0439 63.4248 35.6119 66.1513 41.5811 66.6008C47.5502 67.0503 53.4638 65.1886 58.0989 61.4005L72.7009 76.0002L76.0002 72.7009Z" fill="url(#paint1_linear_994_3173)"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_n_994_3173" x="20" y="20" width="56.0002" height="56.0002" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="2 2" stitchTiles="stitch" numOctaves="3" result="noise" seed="1550" />
+<feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
+<feComponentTransfer in="alphaNoise" result="coloredNoise1">
+<feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+</feComponentTransfer>
+<feComposite operator="in" in2="shape" in="coloredNoise1" result="noise1Clipped" />
+<feFlood flood-color="rgba(184, 155, 106, 0.48)" result="color1Flood" />
+<feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1" />
+<feMerge result="effect1_noise_994_3173">
+<feMergeNode in="shape" />
+<feMergeNode in="color1" />
+</feMerge>
+</filter>
+<radialGradient id="paint0_radial_994_3173" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(48 96) scale(48 27.5801)">
+<stop stop-color="#B89B6A"/>
+<stop offset="1" stop-color="#1F2A37"/>
+</radialGradient>
+<linearGradient id="paint1_linear_994_3173" x1="48.0001" y1="48.0003" x2="48.0001" y2="76.0002" gradientUnits="userSpaceOnUse">
+<stop stop-color="#B89B6A"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+<clipPath id="clip0_994_3173">
+<rect width="56" height="56" fill="white" transform="translate(20 20)"/>
+</clipPath>
+</defs>
+</svg>
