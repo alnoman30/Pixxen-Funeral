@@ -919,3 +919,46 @@ html.lenis body {
     transition: none;
   }
 }
+
+.funeral-serving-slider .splide__slide {
+  opacity: 0.3;
+  transition: opacity 0.4s ease;
+}
+
+.funeral-serving-slider .splide__slide.is-fully-visible {
+  opacity: 1;
+}
+
+/* Used only while Splide teleports from clones to real slides */
+.funeral-serving-slider.is-jumping .splide__slide {
+  transition: none;
+}
+
+/* Prevent FOUT and establish transform layers */
+.funeral-heading-reveal {
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform, filter, opacity;
+}
+
+/* Ensure SplitText line containers clip smoothly without layout shifts */
+.funeral-heading-reveal .split-line {
+  overflow: hidden;
+  display: block;
+}
+.funeral-hero-title,
+.funeral-hero-desc,
+.funeral-hero-buttons,
+.funeral-hero-img,
+.funeral-hero-pricebox,
+.funeral-hero-checklist li {
+  opacity: 0;
+  visibility: hidden;
+  will-change: transform, opacity, filter;
+}
+
+/* Ensure smooth text line masks */
+.funeral-hero-title .split-line {
+  overflow: hidden;
+  display: block;
+}

@@ -214,8 +214,8 @@ gsap.ticker.add((time) => {
 
 gsap.ticker.lagSmoothing(0);
 
-// Pixxen  Financial Advisor js start
-// Financial Advisor Cards reveal JS
+// Pixxen  Funeral js start
+// Funeral Cards reveal JS
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".funeral-card-reveal");
   if (!cards.length) return;
@@ -398,3 +398,359 @@ document.addEventListener("DOMContentLoaded", () => {
   cards.forEach((card) => observer.observe(card));
 });
 
+// funeral-serving-slider
+document.addEventListener("DOMContentLoaded", function () {
+  document
+    .querySelectorAll(".funeral-serving-slider")
+    .forEach(function (root) {
+      const section = root.closest("section");
+      const prev = section.querySelector(".funeral-serving-prev");
+      const next = section.querySelector(".funeral-serving-next");
+
+      if (!prev || !next) {
+        console.warn("Client slider navigation buttons not found.");
+        return;
+      }
+
+      const splide = new Splide(root, {
+        type: "loop",
+        perPage: 4.5,
+        perMove: 1,
+        gap: "1.5rem",
+        arrows: false,
+        pagination: false,
+        drag: true,
+
+        // Autoplay settings
+        autoplay: true,
+        interval: 3000,
+        speed: 1500,
+        pauseOnHover: true,
+        pauseOnFocus: true,
+        resetProgress: false,
+
+        breakpoints: {
+          1279: { perPage: 3.5 },
+          1023: { perPage: 2.5 },
+          767: { perPage: 2.5 },
+          639: {
+            gap: "1rem",
+            perPage: 1.5,
+          },
+        },
+      });
+
+      // Previous button
+      prev.addEventListener("click", function (e) {
+        e.preventDefault();
+        splide.go("<");
+      });
+
+      // Next button
+      next.addEventListener("click", function (e) {
+        e.preventDefault();
+        splide.go(">");
+      });
+
+      const lastLeft = new WeakMap();
+
+      function updateOpacity() {
+        const viewportWidth = document.documentElement.clientWidth;
+        const tolerance = 4;
+        const slides = root.querySelectorAll(".splide__slide");
+
+        // Detect a teleport: a card suddenly moving more than its own width
+        let jumped = false;
+
+        slides.forEach(function (slide) {
+          const r = slide.getBoundingClientRect();
+          const before = lastLeft.get(slide);
+
+          if (
+            before !== undefined &&
+            r.width > 0 &&
+            Math.abs(r.left - before) > r.width
+          ) {
+            jumped = true;
+          }
+
+          lastLeft.set(slide, r.left);
+        });
+
+        if (jumped) {
+          root.classList.add("is-jumping");
+        }
+
+        slides.forEach(function (slide) {
+          const r = slide.getBoundingClientRect();
+
+          const inside =
+            r.width > 0 &&
+            r.left >= -tolerance &&
+            r.right <= viewportWidth + tolerance;
+
+          slide.classList.toggle("is-fully-visible", inside);
+        });
+
+        if (jumped) {
+          void root.offsetWidth;
+
+          requestAnimationFrame(function () {
+            root.classList.remove("is-jumping");
+          });
+        }
+      }
+
+      let rafId = null;
+
+      function trackMovement() {
+        cancelAnimationFrame(rafId);
+
+        const end =
+          performance.now() + (splide.options.speed || 2000) + 150;
+
+        (function loop() {
+          updateOpacity();
+
+          if (performance.now() < end) {
+            rafId = requestAnimationFrame(loop);
+          }
+        })();
+      }
+
+      function settle() {
+        updateOpacity();
+
+        requestAnimationFrame(updateOpacity);
+        setTimeout(updateOpacity, 150);
+        setTimeout(updateOpacity, 500);
+      }
+
+      // Splide events
+      splide.on("mounted resized refresh", settle);
+      splide.on("move", trackMovement);
+      splide.on("dragging scrolling moved dragged", updateOpacity);
+
+      // Initialize slider
+      splide.mount();
+
+      // Recalculate visibility on page load and resize
+      window.addEventListener("load", settle);
+      window.addEventListener("resize", updateOpacity);
+    });
+});
+
+// Funeral headign reveal
+document.addEventListener("DOMContentLoaded", () => {
+  // Register plugins
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  // Target all headings with the class
+  const revealHeadings = document.querySelectorAll(".funeral-heading-reveal");
+
+  revealHeadings.forEach((heading) => {
+    // 1. Reveal hidden element to allow GSAP to handle visibility
+    gsap.set(heading, { opacity: 1, visibility: "visible" });
+
+    // 2. Split text into words and lines for responsive line wrapping
+    const split = new SplitText(heading, {
+      type: "words, lines",
+      wordsClass: "split-word",
+      linesClass: "split-line"
+    });
+
+    // 3. Set initial state on split words (slid down, transparent, blurred)
+    gsap.set(split.words, {
+      yPercent: 100,
+      opacity: 0,
+      filter: "blur(12px)",
+      willChange: "transform, opacity, filter"
+    });
+
+    // 4. Create ScrollTrigger animation
+    gsap.to(split.words, {
+      yPercent: 0,
+      opacity: 1,
+      filter: "blur(0px)",
+      duration: 1.2,
+      ease: "power4.out",
+      stagger: 0.05,
+      scrollTrigger: {
+        trigger: heading,
+        start: "top 85%", // Triggers when the top of heading reaches 85% of viewport height
+        toggleActions: "play none none none",
+        once: true // Ensures smooth execution without re-trigger layout recalculations
+      },
+      onComplete: () => {
+        // Clean up inline filter styles to keep rendering sharp after animation completes
+        gsap.set(split.words, { clearProps: "filter,willChange" });
+      }
+    });
+  });
+});
+
+// 
+document.addEventListener("DOMContentLoaded", () => {
+  gsap.registerPlugin(ScrollTrigger, SplitText);
+
+  const heroSection = document.querySelector(".funeral-hero-section");
+  if (!heroSection) return;
+
+  const title = heroSection.querySelector(".funeral-hero-title");
+  const desc = heroSection.querySelector(".funeral-hero-desc");
+  const buttons = heroSection.querySelectorAll(".funeral-hero-buttons .funeral-btn-cta");
+  const priceBox = heroSection.querySelector(".funeral-hero-pricebox");
+  const divider = heroSection.querySelector(".funeral-divider-line");
+  const checklistItems = heroSection.querySelectorAll(".funeral-hero-checklist li");
+  const heroImg = heroSection.querySelector(".funeral-hero-img");
+
+  // Reveal hidden elements for GSAP initialization
+  gsap.set([title, desc, ".funeral-hero-buttons", priceBox, checklistItems, heroImg], {
+    opacity: 1,
+    visibility: "visible"
+  });
+
+  // Split title text
+  const splitTitle = new SplitText(title, {
+    type: "words, lines",
+    wordsClass: "split-word",
+    linesClass: "split-line"
+  });
+
+  // Set initial hidden states
+  gsap.set(splitTitle.words, {
+    yPercent: 100,
+    opacity: 0,
+    filter: "blur(10px)"
+  });
+
+  gsap.set(heroImg, {
+    scale: 0.9,
+    opacity: 0,
+    y: 40,
+    filter: "blur(10px)"
+  });
+
+  gsap.set(desc, {
+    y: 30,
+    opacity: 0,
+    filter: "blur(6px)"
+  });
+
+  gsap.set(buttons, {
+    y: 20,
+    opacity: 0,
+    scale: 0.95
+  });
+
+  gsap.set(divider, { scaleX: 0 });
+  gsap.set(priceBox.children, { y: 20, opacity: 0 });
+  gsap.set(checklistItems, { x: -20, opacity: 0 });
+
+  // Hero Timeline Sequence
+  const heroTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: heroSection,
+      start: "top 80%",
+      toggleActions: "play none none none",
+      once: true
+    }
+  });
+
+  heroTl
+    // 1. Title Words Reveal
+    .to(splitTitle.words, {
+      yPercent: 0,
+      opacity: 1,
+      filter: "blur(0px)",
+      duration: 1.1,
+      ease: "power4.out",
+      stagger: 0.04
+    })
+    // 2. Hero Image Reveal (Starts AT THE EXACT SAME TIME as title reveal using "<")
+    .to(
+      heroImg,
+      {
+        scale: 1,
+        opacity: 1,
+        y: 0,
+        filter: "blur(0px)",
+        duration: 1.1,
+        ease: "power3.out"
+      },
+      "<" // <--- Synchronizes directly with the title animation start
+    )
+    // 3. Description Fade Up
+    .to(
+      desc,
+      {
+        y: 0,
+        opacity: 1,
+        filter: "blur(0px)",
+        duration: 0.8,
+        ease: "power3.out"
+      },
+      "-=0.6"
+    )
+    // 4. CTA Buttons Reveal
+    .to(
+      buttons,
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        duration: 0.7,
+        ease: "back.out(1.4)",
+        stagger: 0.12
+      },
+      "-=0.5"
+    )
+    // 5. Price Divider Line
+    .to(
+      divider,
+      {
+        scaleX: 1,
+        duration: 0.5,
+        ease: "power2.out"
+      },
+      "-=0.4"
+    )
+    // 6. Price box text
+    .to(
+      priceBox.children,
+      {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.08
+      },
+      "-=0.3"
+    )
+    // 7. Checklist
+    .to(
+      checklistItems,
+      {
+        x: 0,
+        opacity: 1,
+        duration: 0.5,
+        ease: "power3.out",
+        stagger: 0.08,
+        onComplete: () => {
+          // Clear performance filters after animation
+          gsap.set(splitTitle.words, { clearProps: "filter,willChange" });
+          gsap.set([desc, heroImg], { clearProps: "filter,willChange" });
+
+          // Start floating animation on hero image
+          gsap.to(heroImg, {
+            y: -12,
+            duration: 3,
+            ease: "sine.easeInOut",
+            repeat: -1,
+            yoyo: true
+          });
+        }
+      },
+      "-=0.3"
+    );
+});
