@@ -1,0 +1,37 @@
+<svg width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="96" height="96" rx="32" fill="url(#paint0_radial_1038_795)"/>
+<g clip-path="url(#clip0_1038_795)">
+<g filter="url(#filter0_n_1038_795)">
+<path d="M76 76H20V71.3333H76V76ZM52.9933 64.59L75.9067 41H59.69V20H36.3333V41H20.1633L43.03 64.59C44.36 65.9433 46.11 66.6667 47.9767 66.6667C49.8433 66.6667 51.6167 65.9433 52.9467 64.59H52.9933Z" fill="url(#paint1_linear_1038_795)"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_n_1038_795" x="20" y="20" width="56" height="56" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feTurbulence type="fractalNoise" baseFrequency="2 2" stitchTiles="stitch" numOctaves="3" result="noise" seed="1550" />
+<feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
+<feComponentTransfer in="alphaNoise" result="coloredNoise1">
+<feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+</feComponentTransfer>
+<feComposite operator="in" in2="shape" in="coloredNoise1" result="noise1Clipped" />
+<feFlood flood-color="rgba(184, 155, 106, 0.48)" result="color1Flood" />
+<feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1" />
+<feMerge result="effect1_noise_1038_795">
+<feMergeNode in="shape" />
+<feMergeNode in="color1" />
+</feMerge>
+</filter>
+<radialGradient id="paint0_radial_1038_795" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(48 96) scale(48 27.5801)">
+<stop stop-color="#B89B6A"/>
+<stop offset="1" stop-color="#1F2A37"/>
+</radialGradient>
+<linearGradient id="paint1_linear_1038_795" x1="48" y1="48.0002" x2="48" y2="76" gradientUnits="userSpaceOnUse">
+<stop stop-color="#B89B6A"/>
+<stop offset="1" stop-color="white"/>
+</linearGradient>
+<clipPath id="clip0_1038_795">
+<rect width="56" height="56" fill="white" transform="translate(20 20)"/>
+</clipPath>
+</defs>
+</svg>

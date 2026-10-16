@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Farro:wght@300;400;500;700&family=Stack+Sans+Text:wght@200..700&family=Young+Serif&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Farro:wght@300;400;500;700&family=Stack+Sans+Text:wght@200..700&family=Young+Serif&display=swap");
 @import "tailwindcss";
 
 @theme {
@@ -122,9 +122,9 @@ nav {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0;
-  background: #1F2A37;
+  background: #1f2a37;
   /* dark panel bg */
-  border: 1px solid #B89B6A;
+  border: 1px solid #b89b6a;
   border-radius: 24px;
   list-style: none;
   padding: 0;
@@ -179,8 +179,8 @@ nav {
 
 .dropdown-service-list a:hover,
 .dropdown-service-list a.active {
-  background-color: #B89B6A;
-  color: #1F2A37;
+  background-color: #b89b6a;
+  color: #1f2a37;
 }
 
 /* Service icon wrapper */
@@ -240,7 +240,7 @@ nav {
   top: 0;
   right: 0;
   height: 100vh;
-  background: #1F2A37;
+  background: #1f2a37;
   overflow-y: auto;
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -294,11 +294,11 @@ nav {
 }
 
 .mm-close-btn:hover {
-  background: #B89B6A;
+  background: #b89b6a;
 }
 
 .mm-close-btn:hover svg * {
-  fill: #1F2A37 !important;
+  fill: #1f2a37 !important;
 }
 
 /* Nav list */
@@ -327,7 +327,7 @@ nav {
 }
 
 .mm-nav-link:hover {
-  color: #B89B6A;
+  color: #b89b6a;
   background: rgba(153, 254, 0, 0.04);
 }
 
@@ -339,7 +339,7 @@ nav {
 }
 
 .mm-nav-link:hover .mm-plus {
-  color: #B89B6A;
+  color: #b89b6a;
 }
 
 /* LET'S CONNECT button at bottom */
@@ -361,7 +361,7 @@ nav {
 }
 
 .mm-connect-btn:hover {
-  background: #B89B6A;
+  background: #b89b6a;
 }
 
 .mm-connect-btn .mm-arrow {
@@ -413,7 +413,7 @@ nav {
 }
 
 .mm-back-btn:hover {
-  color: #B89B6A;
+  color: #b89b6a;
 }
 
 .mm-services-title {
@@ -434,7 +434,7 @@ nav {
 .mm-service-card {
   background: transparent;
   border-radius: 12px;
-  border: 1px solid #B89B6A;
+  border: 1px solid #b89b6a;
   padding: 16px;
   text-decoration: none;
   display: flex;
@@ -447,8 +447,8 @@ nav {
 }
 
 .mm-service-card:hover {
-  border-color: #B89B6A;
-  background: #F7F4EE;
+  border-color: #b89b6a;
+  background: #f7f4ee;
 }
 
 .mm-service-card .card-label {
@@ -462,7 +462,7 @@ nav {
 }
 
 .mm-service-card:hover .card-label {
-  color: #1F2A37;
+  color: #1f2a37;
 }
 
 /* Decorative grid lines at bottom (subtle) */
@@ -533,19 +533,19 @@ nav {
 
 #mobile-menu-toggle {
   padding: 8px 16px;
-  background-color: #1F2A37;
+  background-color: #1f2a37;
   cursor: pointer;
-  border-right: 1px solid #3A444F;
+  border-right: 1px solid #3a444f;
   transition: all linear 0.3s;
 }
 #mobile-menu-toggle:hover {
-  background-color: #B89B6A;
+  background-color: #b89b6a;
 }
 
 /* ─── TOP PANEL (menu content) ─── */
 .menu-top {
   flex: 1;
-  background: #1F2A37;
+  background: #1f2a37;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -557,8 +557,8 @@ nav {
 /* ─── BOTTOM PANEL (logo bar) ─── */
 .menu-bottom {
   height: 180px;
-  border-top: 1px solid #3A444F;
-  background: linear-gradient(180deg, #1F2A37 0%, #B89B6A 100%);
+  border-top: 1px solid #3a444f;
+  background: linear-gradient(180deg, #1f2a37 0%, #b89b6a 100%);
   display: flex;
   align-items: end;
   justify-content: center;
@@ -647,7 +647,7 @@ nav {
 }
 
 .nav-col-title {
-  color: #B89B6A;
+  color: #b89b6a;
   font-size: 20px;
   font-style: normal;
   font-weight: 500;
@@ -679,7 +679,7 @@ nav {
 }
 
 .nav-col ul li a:hover {
-  color: #B89B6A;
+  color: #b89b6a;
 }
 
 /* ─── BOTTOM LOGO ─── */
@@ -860,7 +860,7 @@ html.lenis body {
 }
 
 .funeral-btn-text-wipe {
-  background-image: linear-gradient(to right, #ffffff 50%, #1F2A37 50%);
+  background-image: linear-gradient(to right, #ffffff 50%, #1f2a37 50%);
   background-size: 200% 100%;
   background-position: 100% 0;
   -webkit-background-clip: text;
@@ -876,7 +876,7 @@ html.lenis body {
 }
 /* Secondary Button Text Wipe Animation */
 .funeral-btn-text-wipe-secondary {
-  background-image: linear-gradient(to right, #B89B6A 50%, #ffffff 50%);
+  background-image: linear-gradient(to right, #b89b6a 50%, #ffffff 50%);
   background-size: 200% 100%;
   background-position: 100% 0;
   -webkit-background-clip: text;
@@ -961,4 +961,67 @@ html.lenis body {
 .funeral-hero-title .split-line {
   overflow: hidden;
   display: block;
+}
+
+/* counter  */
+.funeral-counter-item {
+  display: inline-flex;
+  overflow: hidden;
+  align-items: baseline;
+}
+
+.funeral-counter-digit-col {
+  display: inline-block;
+  overflow: hidden;
+  height: 1em;
+  vertical-align: bottom;
+}
+
+.funeral-counter-digit-list {
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.funeral-counter-digit-list span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 1em;
+}
+
+.funeral-timeline-card {
+  opacity: 0;
+  transform: translateY(50px);
+  transition:
+    opacity 1.4s ease-out,
+    transform 1.6s cubic-bezier(0.25, 0.1, 0.25, 1);
+  transition-delay: var(--delay, 0s);
+  will-change: opacity, transform;
+}
+
+.funeral-timeline-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .funeral-timeline-card {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+.funeral-faq-content {
+  max-height: 0;
+  transition: max-height 0.4s ease;
+}
+
+.funeral-faq-content p {
+  margin: 0;
+}
+
+.funeral-icon-close img {
+  transition: transform 0.3s ease;
 }
